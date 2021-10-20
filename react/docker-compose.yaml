@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  react:
+    container_name: react
+    build: .
+    ports:
+      - "3000:3000"
+      - "5000:5000"
+    volumes:
+      - .:/home/react/src
+      # - ./node_modules:/home/react/node_modules
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"

@@ -17,7 +17,7 @@ Lists all running and background containers:
 Entering in container:
 
 - ```bash
-  docker exec -it node /bin/bash
+  docker exec -it react /bin/bash
   ```
 
 Install dependencies:
@@ -29,14 +29,18 @@ Install dependencies:
 Run the application:
 
 - ```bash
-  npm run dev
+  npm run dev --host 0.0.0.0 # With docker
+  ```
+  or
+- ```bash
+  npm run dev # Without docker
   ```
 
-Create migrations from Prisma schema, apply them to the database:
+<!-- Create migrations from Prisma schema, apply them to the database:
 
 - ```bash
   npx prisma migrate dev
-  ```
+  ``` -->
 
 Generate a secret key:
 
@@ -48,7 +52,7 @@ Generate a secret key:
   echo -n "secret" | openssl sha256
   ```
 
-Prisma studio to show the database:
+<!-- Prisma studio to show the database:
 
 - ```bash
   npx prisma studio
@@ -58,7 +62,7 @@ Socket. io client:
 
 - ```html
   public/index.html # Open the index.html file.
-  ```
+  ``` -->
 
 Stops containers and remove containers:
 
@@ -69,7 +73,7 @@ Stops containers and remove containers:
 Remove the image to save space on your disk:
 
 - ```bash
-  docker rmi node_node
+  docker rmi react_react
   ```
 
 ```markdown
