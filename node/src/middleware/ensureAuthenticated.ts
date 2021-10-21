@@ -19,7 +19,7 @@ export function ensureAuthenticated(request: Request, response: Response, next: 
   const [, token] = authToken.split(" ");
 
   try {
-    const { sub } = jwt.verify(token, process.env.JWT_SECRET) as IPayload;
+    const { sub } = jwt.verify(token, String(process.env.JWT_SECRET)) as IPayload;
 
     request.user_id = sub;
 

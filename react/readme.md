@@ -29,40 +29,12 @@ Install dependencies:
 Run the application:
 
 - ```bash
-  npm run dev --host 0.0.0.0 # With docker
+  npm run dev:docker # With docker
   ```
   or
 - ```bash
   npm run dev # Without docker
   ```
-
-<!-- Create migrations from Prisma schema, apply them to the database:
-
-- ```bash
-  npx prisma migrate dev
-  ``` -->
-
-Generate a secret key:
-
-- ```bash
-  echo -n "secret" | sha256sum
-  ```
-  or
-- ```bash
-  echo -n "secret" | openssl sha256
-  ```
-
-<!-- Prisma studio to show the database:
-
-- ```bash
-  npx prisma studio
-  ```
-
-Socket. io client:
-
-- ```html
-  public/index.html # Open the index.html file.
-  ``` -->
 
 Stops containers and remove containers:
 
@@ -79,4 +51,5 @@ Remove the image to save space on your disk:
 ```markdown
 #RumoAoPróximoNível
 #Protagonistas
+#ImaginarConstruirTransformar
 ```

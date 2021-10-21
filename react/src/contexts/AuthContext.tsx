@@ -41,7 +41,7 @@ function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User | null>(null);
   const [isSigningIn, setIsSigningIn] = useState(false);
 
-  const signInUrl = `https://github.com/login/oauth/authorize?scope=user&client_id=${clientId}&redirect_uri=${redirectUri}`;
+  const signInUrl = `https://github.com/login/oauth/authorize?scope=read:user&client_id=${clientId}&redirect_uri=${redirectUri}`;
 
   async function signIn(githubCode: string) {
     setIsSigningIn(true);
@@ -50,7 +50,7 @@ function AuthProvider({ children }: AuthProviderProps) {
       const response = await api.post<AuthResponse>("/authenticate", {
         code: githubCode
       });
-      console.log(response);
+      // console.log(response);
 
       const { token, user } = response.data;
 

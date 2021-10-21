@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "dev:docker": "npx vite --host 0.0.0.0"
   },
   "dependencies": {
     "axios": "^0.23.0",

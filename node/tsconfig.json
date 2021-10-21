@@ -2,10 +2,11 @@
   "compilerOptions": {
     "target": "ES2019",
     "module": "commonjs",
+    "typeRoots": ["./src/@types", "node_modules/@types"],
+    "outDir": "./dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "strict": false,
-    "skipLibCheck": true,
-    "typeRoots": ["./src/@types", "node_modules/@types"]
+    "strict": false, // if TRUE Enable all strict type-checking options.
+    "skipLibCheck": true
   }
 }

@@ -71,7 +71,7 @@ class AuthenticateUserService {
           avatar_ur: user.avatar_url
         }
       },
-      process.env.JWT_SECRET,
+      String(process.env.JWT_SECRET),
       {
         subject: user.id,
         expiresIn: "1d"

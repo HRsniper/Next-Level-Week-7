@@ -9,5 +9,6 @@ services:
       - "5555:5555"
     volumes:
       - .:/home/node/src
+      # - ./node_modules:/home/reactnative/node_modules
     extra_hosts:
       - "host.docker.internal:172.17.0.1"

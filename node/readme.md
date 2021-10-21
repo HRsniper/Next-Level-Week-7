@@ -29,7 +29,7 @@ Install dependencies:
 Run the application:
 
 - ```bash
-  npm run dev
+  npm run dev # With docker and without docker
   ```
 
 Create migrations from Prisma schema, apply them to the database:
@@ -75,4 +75,5 @@ Remove the image to save space on your disk:
 ```markdown
 #RumoAoPróximoNível
 #Protagonistas
+#ImaginarConstruirTransformar
 ```

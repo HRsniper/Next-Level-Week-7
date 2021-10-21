@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  reactnative:
+    container_name: reactnative
+    build: .
+    ports:
+      - 19000:19000
+      - 19001:19001
+      - 19002:19002
+      - 19006:19006
+    volumes:
+      - .:/home/reactnative/src
+      # - ./node_modules:/home/reactnative/node_modules
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
+    environment:
+      - EXPO_DEVTOOLS_LISTEN_ADDRESS=0.0.0.0
+      # Set your local IP address to connect it to 'expo'.
+      # 'ipconfig' or 'hostname -i' to get your local IP.
+      - REACT_NATIVE_PACKAGER_HOSTNAME=${HOSTNAME}
