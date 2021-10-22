@@ -1,0 +1,37 @@
+
+### Elixir ###
+/_build
+/cover
+/deps
+/doc
+/.fetch
+erl_crash.dump
+*.ez
+*.beam
+/config/*.secret.exs
+.elixir_ls/
+
+# Ignore package tarball (built via "mix hex.build").
+heat_tags-*.tar
+
+### Erlang ###
+.eunit
+*.o
+*.plt
+.concrete/DEV_MODE
+
+# rebar 2.x
+.rebar
+rel/example_project
+ebin/*.beam
+deps
+
+# rebar 3
+.rebar3
+_build/
+_checkouts/
+
+# postgresql
+.docker/postgres/data/pgdata
+
+.env

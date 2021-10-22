@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+  elixir:
+    build: .
+    container_name: elixir
+    entrypoint: dockerize -wait tcp://postgres:5432 tail -f /dev/null
+    ports:
+      - 4444:4000
+    depends_on:
+      - postgres
+    volumes:
+      - .:/home/elixir/src
+    env_file:
+      - .env
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
+
+  postgres:
+    build: .docker/postgres
+    container_name: postgres
+    ports:
+      - 5432:5432
+    # volumes:
+    #   - ./.docker/postgres/data:/var/lib/postgresql/data
+    tty: true
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      # - POSTGRES_DB=db
+      - PGDATA=/var/lib/postgresql/data/pgdata
+
+  pgadmin4:
+    build: .docker/pgadmin4
+    container_name: pgadmin4
+    ports:
+      - 5433:80
+    depends_on:
+      - postgres
+    tty: true
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=pg@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=root
