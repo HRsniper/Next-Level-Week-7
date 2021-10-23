@@ -5,10 +5,17 @@ defmodule HeatTagsWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/", HeatTagsWeb do
+    pipe_through :api
+
+    get "/", HomeController, :index
+  end
+
   scope "/api", HeatTagsWeb do
     pipe_through :api
 
     post "/message", MessagesController, :create
+    get "/words", TagsController, :get
   end
 
   # Enables LiveDashboard only for development

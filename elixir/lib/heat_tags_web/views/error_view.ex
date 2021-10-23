@@ -19,10 +19,10 @@ defmodule HeatTagsWeb.ErrorView do
   end
 
   def render("error.json", %{result: %Changeset{} = changeset}) do
-    %{result: traslate_errors(changeset)}
+    %{result: translate_errors(changeset)}
   end
 
-  defp traslate_errors(changeset) do
+  defp translate_errors(changeset) do
     traverse_errors(changeset, fn {msg, opts} ->
       Enum.reduce(opts, msg, fn {key, value}, acc ->
         String.replace(acc, "%{#{key}}", to_string(value))

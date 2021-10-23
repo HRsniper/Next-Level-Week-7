@@ -1,4 +1,3 @@
-
 ### Elixir ###
 /_build
 /cover
@@ -34,4 +33,8 @@ _checkouts/
 # postgresql
 .docker/postgres/data/pgdata
 
+# dotenv
 .env
+.env.local
+.env.development
+.env.test

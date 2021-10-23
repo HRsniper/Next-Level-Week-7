@@ -17,9 +17,11 @@ config :heat_tags, HeatTagsWeb.Endpoint,
   pubsub_server: HeatTags.PubSub,
   live_view: [signing_salt: "gxXhUF5X"]
 
+# Configures the scheduler
 config :heat_tags, HeatTags.Scheduler,
   jobs: [
     {"* * * * * *", {HeatTags.Tags.Count, :call, []}}
+    # {"@daily", {HeatTags.Tags.Count, :call, []}}
   ]
 
 # Configures the mailer

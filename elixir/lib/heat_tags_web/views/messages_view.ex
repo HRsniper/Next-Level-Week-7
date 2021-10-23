@@ -3,7 +3,7 @@ defmodule HeatTagsWeb.MessagesView do
 
   def render("create.json", %{message: message}) do
     %{
-      result: "Message created banana!",
+      result: "Message created!",
       message: message
     }
   end
