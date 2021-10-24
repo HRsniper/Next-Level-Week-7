@@ -19,3 +19,6 @@ services:
       # Set your local IP address to connect it to 'expo'.
       # 'ipconfig' or 'hostname -i' to get your local IP.
       - REACT_NATIVE_PACKAGER_HOSTNAME=${HOSTNAME}
+      - EXPO_CLI_PASSWORD=${EXPO_CLI_PASSWORD}
+      - EXPO_CLI_USERNAME=${EXPO_CLI_USERNAME}
+    tty: true

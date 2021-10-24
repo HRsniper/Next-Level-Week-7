@@ -2,13 +2,13 @@ import React, { createContext, useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as AuthSessions from "expo-auth-session";
 import { api } from "../services/api";
+import { env } from "../utils/env";
 
-const CLIENT_ID = "57f382b75acef0580b2e";
+const CLIENT_ID = env.GITHUB_CLIENT_ID;
+const REDIRECT_URI = env.GITHUB_CALLBACK_URL;
 const SCOPE = "read:user";
 const USER_STORAGE = "@nlwheat:user";
 const TOKEN_STORAGE = "@nlwheat:token";
-const clientId = process.env.GITHUB_CLIENT_ID;
-// const redirectUri = process.env.GITHUB_CALLBACK_URL;
 
 type User = {
   id: string;
@@ -41,16 +41,16 @@ type AuthorizationResponse = {
   type?: string;
 };
 
-const AuthContext = createContext({} as AuthContextData);
+export const AuthContext = createContext({} as AuthContextData);
 
-function AuthProvider({ children }: AuthProviderProps) {
+export function AuthProvider({ children }: AuthProviderProps) {
   const [isSigningIn, setIsSigningIn] = useState(true);
   const [user, setUser] = useState<User | null>(null);
 
   async function signIn() {
     try {
       setIsSigningIn(true);
-      const authUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&scope=${SCOPE}`;
+      const authUrl = `https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=${SCOPE}`;
       const authSessionResponse = (await AuthSessions.startAsync({ authUrl })) as AuthorizationResponse;
 
       if (authSessionResponse.type === "success" && authSessionResponse.params.error !== "access_denied") {
@@ -105,5 +105,3 @@ function AuthProvider({ children }: AuthProviderProps) {
     </AuthContext.Provider>
   );
 }
-
-export { AuthProvider, AuthContext };

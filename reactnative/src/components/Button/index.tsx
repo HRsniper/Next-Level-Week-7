@@ -11,7 +11,7 @@ type Props = TouchableOpacityProps & {
   isLoading?: boolean;
 };
 
-function Button({ title, color, backgroundColor, icon, isLoading = false, ...rest }: Props) {
+export function Button({ title, color, backgroundColor, icon, isLoading = false, ...rest }: Props) {
   return (
     <TouchableOpacity
       style={[styles.button, { backgroundColor }]}
@@ -30,5 +30,3 @@ function Button({ title, color, backgroundColor, icon, isLoading = false, ...res
     </TouchableOpacity>
   );
 }
-
-export { Button };

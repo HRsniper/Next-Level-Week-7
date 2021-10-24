@@ -12,10 +12,10 @@ let messagesQueue: MessageProps[] = [];
 const socket = io(String(api.defaults.baseURL));
 socket.on("new_message", (newMessage) => {
   messagesQueue.push(newMessage);
-  // console.log(newMessage);
+  console.log(newMessage);
 });
 
-function MessageList() {
+export function MessageList() {
   const [currentMessages, setCurrentMessages] = useState<MessageProps[]>([]);
 
   useEffect(() => {
@@ -50,5 +50,3 @@ function MessageList() {
     </ScrollView>
   );
 }
-
-export { MessageList };

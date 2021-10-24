@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "reactnative-heat",
-    "slug": "reactnative-heat",
+    "name": "nlwheatapp",
+    "slug": "nlwheatapp",
     "version": "1.0.0",
-    "scheme": "reactnative-heat",
+    "scheme": "nlwheatapp",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {

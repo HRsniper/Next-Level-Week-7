@@ -22,9 +22,8 @@ type Props = {
 };
 
 const AVATAR_DEFAULT = Image.resolveAssetSource(avatarImg).uri;
-// const AVATAR_DEFAULT = "https://github.com/HRsniper.png";
 
-function UserPhoto({ imageUri, sizes = "NORMAL" }: Props) {
+export function UserPhoto({ imageUri, sizes = "NORMAL" }: Props) {
   const { containerSize, avatarSize } = SIZES[sizes];
 
   return (
@@ -55,5 +54,3 @@ function UserPhoto({ imageUri, sizes = "NORMAL" }: Props) {
     </LinearGradient>
   );
 }
-
-export { UserPhoto };

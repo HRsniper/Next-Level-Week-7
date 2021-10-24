@@ -5,7 +5,7 @@ import { COLORS } from "../../theme";
 import { Button } from "../Button";
 import { styles } from "./styles";
 
-function SignInBox() {
+export function SignInBox() {
   const { signIn, isSigningIn } = useAuth();
 
   return (
@@ -21,5 +21,3 @@ function SignInBox() {
     </View>
   );
 }
-
-export { SignInBox };

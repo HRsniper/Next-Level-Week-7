@@ -5,7 +5,7 @@ import { COLORS } from "../../theme";
 import { Button } from "../Button";
 import { styles } from "./styles";
 
-function SendMessageForm() {
+export function SendMessageForm() {
   const [message, setMessage] = useState("");
   const [sendingMessage, setSendingMessage] = useState(false);
 
@@ -49,5 +49,3 @@ function SendMessageForm() {
     </View>
   );
 }
-
-export { SendMessageForm };

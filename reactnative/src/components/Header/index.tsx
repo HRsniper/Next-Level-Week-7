@@ -5,7 +5,7 @@ import { useAuth } from "../../hooks/useAuth";
 import { UserPhoto } from "../UserPhoto";
 import { styles } from "./styles";
 
-function Header() {
+export function Header() {
   const { user, signOut } = useAuth();
   return (
     <View style={styles.container}>
@@ -23,5 +23,3 @@ function Header() {
     </View>
   );
 }
-
-export { Header };

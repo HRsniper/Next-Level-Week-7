@@ -4,7 +4,7 @@ import { Text, View } from "react-native";
 import { UserPhoto } from "../UserPhoto";
 import { styles } from "./styles";
 
-type MessageProps = {
+export type MessageProps = {
   id: string;
   text: string;
   user: {
@@ -17,7 +17,7 @@ type Props = {
   data: MessageProps;
 };
 
-function Message({ data }: Props) {
+export function Message({ data }: Props) {
   return (
     <MotiView
       from={{ opacity: 0, translateY: -50 }}
@@ -35,5 +35,3 @@ function Message({ data }: Props) {
     </MotiView>
   );
 }
-
-export { Message, MessageProps };

@@ -7,7 +7,7 @@ import { SignInBox } from "../../components/SignInBox";
 import { useAuth } from "../../hooks/useAuth";
 import { styles } from "./styles";
 
-function Home() {
+export function Home() {
   const { user } = useAuth();
 
   return (
@@ -21,5 +21,3 @@ function Home() {
     </KeyboardAvoidingView>
   );
 }
-
-export { Home };
