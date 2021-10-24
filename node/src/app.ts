@@ -24,6 +24,10 @@ app.use(express.json());
 
 app.use(router);
 
+app.get("/", (request, response) => {
+  response.json({ server: "✅ Server is running" });
+});
+
 app.get("/github", (request, response) => {
   response.redirect(`https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}`);
 });
