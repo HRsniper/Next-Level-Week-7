@@ -9,5 +9,7 @@ WORKDIR /home/react/src
 
 COPY . .
 
-CMD ["tail", "-f", "/dev/null"]
-# CMD [ "npm", "run", "dev:docker" ]
+RUN chmod +x .docker/entrypoint.sh
+
+# CMD ["tail", "-f", "/dev/null"]
+ENTRYPOINT [ ".docker/entrypoint.sh" ]
