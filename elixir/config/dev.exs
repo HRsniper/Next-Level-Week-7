@@ -5,8 +5,6 @@ defmodule HeatTags.Env do
       |> String.split(".")
       |> Enum.map(&String.to_integer/1)
       |> List.to_tuple()
-    else
-      {127, 0, 0, 1}
     end
   end
 end
@@ -15,10 +13,10 @@ import Config
 
 # Configure your database
 config :heat_tags, HeatTags.Repo,
-  username: "postgres",
-  password: "root",
+  username: System.get_env("POSTGRES_USER") || "postgres",
+  password: System.get_env("POSTGRES_PASSWORD") || "root",
   database: "heat_tags_dev",
-  hostname: "postgres",
+  hostname: System.get_env("POSTGRES_HOST") || "postgres",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
@@ -32,10 +30,7 @@ config :heat_tags, HeatTagsWeb.Endpoint,
   # Default is {127, 0, 0, 1}
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
-  http: [ip: HeatTags.Env.get_env(), port: 4000],
-  # System.put_env([{"ELIXIR_HOST", "0.0.0.0"}])
-  # System.get_env("ELIXIR_HOST")
-  # System.get_env("ELIXIR_HOST") || {127, 0, 0, 1} |> String.split(".") |> Enum.map(&String.to_integer/1) |> List.to_tuple()
+  http: [ip: HeatTags.Env.get_env() || {127, 0, 0, 1}, port: 4000],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,

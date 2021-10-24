@@ -4,7 +4,7 @@ services:
   elixir:
     build: .
     container_name: elixir
-    entrypoint: dockerize -wait tcp://postgres:5432 tail -f /dev/null
+    entrypoint: dockerize -wait tcp://postgres:5432 .docker/entrypoint.sh -timeout 1m
     ports:
       - 4444:4000
     depends_on:
@@ -15,19 +15,20 @@ services:
       - .env
     extra_hosts:
       - "host.docker.internal:172.17.0.1"
+    tty: true
 
   postgres:
     build: .docker/postgres
     container_name: postgres
     ports:
       - 5432:5432
-    # volumes:
-    #   - ./.docker/postgres/data:/var/lib/postgresql/data
+    volumes:
+      - ./.docker/postgres/data:/var/lib/postgresql/data
     tty: true
     restart: always
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       # - POSTGRES_DB=db
       - PGDATA=/var/lib/postgresql/data/pgdata
 
@@ -40,5 +41,5 @@ services:
       - postgres
     tty: true
     environment:
-      - PGADMIN_DEFAULT_EMAIL=pg@admin.com
-      - PGADMIN_DEFAULT_PASSWORD=root
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}

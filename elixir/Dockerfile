@@ -13,18 +13,12 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
 
 WORKDIR /home/elixir/src
 
-COPY . .
-
 RUN mix local.hex --force && mix local.rebar --force
 RUN mix archive.install hex phx_new --force
-RUN mix do deps.get, compile
 
-RUN if ping postgres -c 1; then \
-  echo "Postgres is alive"; \
-  mix ecto.setup; \
-  else \
-  echo "Postgres is down"; \
-  fi
+COPY . .
 
-# CMD [ "mix", "phx.server" ]
-CMD ["tail", "-f", "/dev/null"]
+RUN chmod +x .docker/entrypoint.sh
+
+# CMD ["tail", "-f", "/dev/null"]
+ENTRYPOINT [".docker/entrypoint.sh"]
