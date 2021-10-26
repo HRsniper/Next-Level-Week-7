@@ -124,3 +124,5 @@ dist
 
 # Prisma database
 prisma/dev.db
+
+src/utils/env.ts
