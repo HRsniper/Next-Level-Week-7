@@ -1,5 +1,6 @@
-import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import reactRefresh from "@vitejs/plugin-react-refresh";
+import { defineConfig } from "vite";
 
 export default defineConfig({
   // enable if you are going to run the 'npm run dev' command,
@@ -10,5 +11,6 @@ export default defineConfig({
   // server: {
   //   host: "0.0.0.0"
   // },
-  plugins: [react()]
+  // plugins: [reactRefresh({ include: ["**/*.tsx", "**/*.scss"] })]
+  plugins: [react({ include: ["**/*.tsx", "**/*.scss"] })]
 });

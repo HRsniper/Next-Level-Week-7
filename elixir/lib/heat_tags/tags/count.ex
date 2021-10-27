@@ -7,6 +7,8 @@ defmodule HeatTags.Tags.Count do
     |> Task.async_stream(&count_words(&1.message))
     # |> Enum.reduce(%{}, fn elem, acc -> sum_values(elem, acc) end)
     |> Enum.reduce(%{}, &sum_values(&1, &2))
+    |> Enum.to_list()
+    |> inspect()
     |> IO.inspect() # Scheduler output the job in the console
     |> handle_words()
   end

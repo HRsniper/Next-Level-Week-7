@@ -2,6 +2,7 @@ import styles from "./App.module.scss";
 import { LoginBox } from "./components/LoginBox";
 import { MessageList } from "./components/MessageList";
 import { SendMessageForm } from "./components/SendMessageForm";
+import { WordCloud } from "./components/WordCloud";
 import { useAuth } from "./hooks/useAuth";
 
 function App() {
@@ -10,8 +11,9 @@ function App() {
   return (
     <div className="App">
       <main className={`${styles.contentWrapper} ${Boolean(user) ? styles.contentSigned : ""}`}>
-        <MessageList />
-        {Boolean(user) ? <SendMessageForm /> : <LoginBox />}
+        <WordCloud />
+        {/* <MessageList />
+        {Boolean(user) ? <SendMessageForm /> : <LoginBox />} */}
       </main>
     </div>
   );
